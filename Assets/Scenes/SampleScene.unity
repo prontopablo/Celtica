@@ -28840,6 +28840,7 @@ GameObject:
   - component: {fileID: 2008828524}
   - component: {fileID: 2008828520}
   - component: {fileID: 2008828525}
+  - component: {fileID: 2008828526}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -29057,6 +29058,23 @@ MonoBehaviour:
   startingHealth: 100
   currentHealth: 0
   damageThreshold: 10
+--- !u!114 &2008828526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008828515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdd7b07037ee82d43b57e31013a766e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterPrefab: {fileID: 696068786050143356, guid: de4b9476de55adf40a29867153d3906b, type: 3}
+  waterSpeed: 50
+  waterInterval: 0.001
+  waterLifetime: 1
+  waterSpread: 0.001
 --- !u!4 &2013230752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1359498564298522463, guid: de4b9476de55adf40a29867153d3906b, type: 3}

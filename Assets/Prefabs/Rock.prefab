@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9026575965966749244}
   - component: {fileID: 5006806101313200750}
   - component: {fileID: 1776145675581516945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e7a6522b571fc6546b53acf1588c20ae, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

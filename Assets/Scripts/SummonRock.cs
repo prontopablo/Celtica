@@ -15,6 +15,7 @@ public class SummonRock : MonoBehaviour
     public LayerMask groundLayers; // Layer mask for the ground layer
     public float rockDistance = 1f; // Distance in front of player to summon rock
     public Text cooldownText; // Declare a public Text variable to hold the UI text element
+    public float breakForce = 3f; // Force required for the rock to break
     private float lastSummonTime; // Time when the last rock was summoned
     private bool isGrounded = false;
     private bool summoningRock = false; // Flag for whether the rock is being summoned
@@ -89,4 +90,13 @@ public class SummonRock : MonoBehaviour
             }
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+{
+    // Check if the collision has enough force to break the rock
+    if (collision.relativeVelocity.magnitude >= breakForce)
+    {
+        // Destroy the rock
+        Destroy(summonedRock);
+    }
+}
 }

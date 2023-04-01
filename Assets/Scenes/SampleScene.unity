@@ -29008,6 +29008,7 @@ MonoBehaviour:
     m_Bits: 8
   rockDistance: 1
   cooldownText: {fileID: 2095286169}
+  breakForce: 10
 --- !u!114 &2008828523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29070,11 +29071,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd7b07037ee82d43b57e31013a766e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterPrefab: {fileID: 696068786050143356, guid: de4b9476de55adf40a29867153d3906b, type: 3}
-  waterSpeed: 50
-  waterInterval: 0.001
-  waterLifetime: 1
-  waterSpread: 0.001
+  liquidParticlePrefab: {fileID: 696068786050143356, guid: de4b9476de55adf40a29867153d3906b, type: 3}
+  burstSize: 20
+  burstCooldown: 1
+  spreadAngle: 2
 --- !u!4 &2013230752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1359498564298522463, guid: de4b9476de55adf40a29867153d3906b, type: 3}

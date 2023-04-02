@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 5f;
     public float digDistance = 1f;
     public float crouchHeightModifier = 0.5f;
     public float crouchSpeed = 2f;
     public float jumpTime = 0.25f; // Time to reach the apex of the jump
-    public float variableJumpHeightMultiplier = 0.5f; // How much to multiply jump force by when jump button is released early
-    public float fallSpeedMultiplier = 2.0f; // Multiplier for the player's fall speed  
+    public float variableJumpHeightMultiplier = 0.25f; // How much to multiply jump force by when jump button is released early
+    public float fallSpeedMultiplier = 2f; // Multiplier for the player's fall speed  
     public KeyCode crouchKey = KeyCode.C;
     public LayerMask groundLayers;
 
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             isJumping = false;
         }
-        
+
         // Apply fall speed multiplier
         if (rb.velocity.y < 0)
         {

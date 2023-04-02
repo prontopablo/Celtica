@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 standingColliderOffset;
 
     private float horizontalMove = 0f;
+    private float coyoteTime = 0.1f;
     private bool isGrounded = false;
     private bool isJumping = false;
     private bool isCrouching = false;
@@ -38,6 +39,15 @@ public class PlayerController : MonoBehaviour
         // Check if the player is on the ground
         isGrounded = Physics2D.IsTouchingLayers(coll, groundLayers);
 
+        if (isGrounded)
+        {
+            coyoteTime = 0.1f; // Reset coyoteTime when player is on the ground
+        }
+        else
+        {
+            coyoteTime -= Time.deltaTime; // Subtract coyoteTime every frame player is not on the ground
+        }
+
         // Handle player movement
         horizontalMove = Input.GetAxisRaw("Horizontal") * (Input.GetKey(crouchKey) ? crouchSpeed : moveSpeed);
 
@@ -52,7 +62,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Handle player jumping
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && (isGrounded || coyoteTime > 0f))
         {
             isJumping = true;
             jumpTimeCounter = jumpTime;

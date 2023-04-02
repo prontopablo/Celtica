@@ -27242,7 +27242,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 80
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -28859,12 +28859,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f646949374792224db29f63591208abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 10
+  moveSpeed: 7
+  jumpForce: 8
   digDistance: 1
   crouchHeightModifier: 0.5
   crouchSpeed: 2
-  jumpTime: 0.25
+  jumpTime: 0.2
   variableJumpHeightMultiplier: 0.5
   crouchKey: 99
   groundLayers:

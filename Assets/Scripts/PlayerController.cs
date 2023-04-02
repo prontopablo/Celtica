@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float crouchSpeed = 2f;
     public float jumpTime = 0.25f; // Time to reach the apex of the jump
     public float variableJumpHeightMultiplier = 0.5f; // How much to multiply jump force by when jump button is released early
+    public float fallSpeedMultiplier = 2.0f; // Multiplier for the player's fall speed  
     public KeyCode crouchKey = KeyCode.C;
     public LayerMask groundLayers;
 
@@ -78,11 +79,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-    if (Input.GetButtonUp("Jump"))
-    {
+        if (Input.GetButtonUp("Jump"))
+        {
         isJumping = false;
         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
-    }
+        }
 
         // Handle player digging
         if (Input.GetButtonDown("Dig"))
@@ -121,6 +122,12 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             isJumping = false;
+        }
+        
+        // Apply fall speed multiplier
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallSpeedMultiplier - 1) * Time.deltaTime;
         }
     }
 

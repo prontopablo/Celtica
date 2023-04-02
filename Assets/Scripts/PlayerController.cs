@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float digDistance = 1f;
     public float crouchHeightModifier = 0.5f;
     public float crouchSpeed = 2f;
+    public float jumpTime = 0.25f; // Time to reach the apex of the jump
+    public float variableJumpHeightMultiplier = 0.5f; // How much to multiply jump force by when jump button is released early
     public KeyCode crouchKey = KeyCode.C;
     public LayerMask groundLayers;
 
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = false;
     private bool isJumping = false;
     private bool isCrouching = false;
+    private float jumpTimeCounter;
 
     void Start()
     {
@@ -52,7 +55,24 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             isJumping = true;
+            jumpTimeCounter = jumpTime;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
+            if (Input.GetButton("Jump") && isJumping)
+        {
+        if (jumpTimeCounter > 0)
+            {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            jumpTimeCounter -= Time.deltaTime;
+            }
+        }
+
+    if (Input.GetButtonUp("Jump"))
+    {
+        isJumping = false;
+        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
+    }
 
         // Handle player digging
         if (Input.GetButtonDown("Dig"))

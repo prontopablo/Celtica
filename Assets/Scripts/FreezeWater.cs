@@ -60,8 +60,15 @@ public class FreezeWater : MonoBehaviour
 
     IEnumerator UnfreezeWater(Rigidbody2D rb, SpriteRenderer spriteRenderer, float delay)
     {
+        Vector2 initialPosition = rb.position;
+        Vector2 initialVelocity = rb.velocity;
+
         yield return new WaitForSeconds(delay);
+
         rb.constraints = RigidbodyConstraints2D.None;
+        rb.position = initialPosition;
+        rb.velocity = initialVelocity;
+
         spriteRenderer.color = Color.blue; // Change the color back to its original value
     }
 

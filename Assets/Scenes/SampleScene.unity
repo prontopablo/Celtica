@@ -778,7 +778,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Rock (T):'
+  m_Text: 'Freeze (Y):'
 --- !u!222 &349057630
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3570,6 +3570,7 @@ GameObject:
   - component: {fileID: 2008828520}
   - component: {fileID: 2008828525}
   - component: {fileID: 2008828526}
+  - component: {fileID: 2008828527}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -3808,6 +3809,21 @@ MonoBehaviour:
   freezeDuration: 3
   cooldown: 4
   cooldownText: {fileID: 349057629}
+--- !u!114 &2008828527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008828515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a1c83c7a9eb2d24db8d8f9c445ff6f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterParticlePrefab: {fileID: 3270965696353683610, guid: 5bff43ce3024f11449cfa6382c2977b0, type: 3}
+  moveRadius: 3
+  moveSpeed: 5
 --- !u!1001 &2036045507
 PrefabInstance:
   m_ObjectHideFlags: 0

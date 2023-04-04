@@ -8115,6 +8115,8 @@ MonoBehaviour:
   launchSpeed: 8
   launchAngle: 45
   launchKey: 304
+  rockPrefab: {fileID: 4709771858599003583, guid: 6c0da8b58fc087f45ad9fb8c5d990592, type: 3}
+  growTime: 0.25
 --- !u!1001 &2030171789
 PrefabInstance:
   m_ObjectHideFlags: 0

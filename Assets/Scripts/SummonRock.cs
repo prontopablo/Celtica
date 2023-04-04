@@ -16,6 +16,7 @@ public class SummonRock : MonoBehaviour
     public float rockDistance = 1f; // Distance in front of player to summon rock
     public Text cooldownText; // Declare a public Text variable to hold the UI text element
     public float breakForce = 3f; // Force required for the rock to break
+    public float rockSpeed = 40f;
     private float lastSummonTime; // Time when the last rock was summoned
     private bool isGrounded = false;
     private bool summoningRock = false; // Flag for whether the rock is being summoned
@@ -33,70 +34,66 @@ public class SummonRock : MonoBehaviour
         standingColliderOffset = coll.offset;
     }
 
-    private void Update()
+private void Update()
+{
+    // Check if the player is on the ground
+    isGrounded = Physics2D.IsTouchingLayers(coll, groundLayers);
+
+    // Check if the player presses the summon button (in this case, the T key)
+    if (Input.GetKeyDown(KeyCode.T))
     {
-        // Check if the player is on the ground
-        isGrounded = Physics2D.IsTouchingLayers(coll, groundLayers);
-
-        // Check if the player presses the summon button (in this case, the T key)
-        if (Input.GetKeyDown(KeyCode.T))
+        // Check if enough time has passed since the last summon
+        if (Time.time - lastSummonTime >= summonDelay)
         {
-            // Check if enough time has passed since the last summon
-            if (Time.time - lastSummonTime >= summonDelay)
+            // Check if the player is touching the ground layer
+            if (isGrounded && !summoningRock)
             {
-                // Check if the player is touching the ground layer
-                if (isGrounded && !summoningRock)
-                {
-                    // Start summoning the rock
-                    summoningRock = true;
-                    summonStartTime = Time.time;
-                    Vector3 playerPos = transform.position;
-                    Vector3 summonDirection = transform.up;
-                    summonStartPos = playerPos + transform.right * rockDistance * (transform.localScale.x < 0 ? -1 : 1);
-                    summonedRock = Instantiate(rockPrefab, summonStartPos, Quaternion.identity);
-                    summonedRock.transform.localScale = Vector3.zero;
+                // Start summoning the rock
+                summoningRock = true;
+                summonStartTime = Time.time;
+                Vector3 playerPos = transform.position;
+                Vector3 summonDirection = transform.up;
+                summonStartPos = playerPos + transform.right * rockDistance * (transform.localScale.x < 0 ? -1 : 1);
+                summonedRock = Instantiate(rockPrefab, summonStartPos, Quaternion.identity);
+                summonedRock.transform.localScale = Vector3.zero;
 
-                    // Update the last summon time
-                    lastSummonTime = Time.time;
-                }
-            }
-        }
-
-        // Calculate the remaining cooldown time
-        float remainingCooldownTime = Mathf.Max(0f, summonDelay - (Time.time - lastSummonTime));
-
-        // Update the UI text element with the remaining cooldown time
-        cooldownText.text = "Rock (T): " + remainingCooldownTime.ToString("F0") + "s";
-
-        // If the rock is being summoned, move it up from the ground and then keep it at the player's eye level for a second
-        if (summoningRock)
-        {
-            float summonProgress = (Time.time - summonStartTime) / 1f;
-            if (summonProgress < 1f)
-            {
-                float summonHeight = Mathf.Lerp(0f, 1.5f, summonProgress);
-                Vector3 summonPos = summonStartPos + Vector3.up * summonHeight;
-                summonedRock.transform.position = summonPos;
-
-                float summonScale = Mathf.Lerp(0f, 1f, summonProgress);
-                summonedRock.transform.localScale = new Vector3(summonScale, summonScale, summonScale);
-            }
-            else
-            {
-                summonedRock.transform.localScale = Vector3.one;
-                summonedRock.SetActive(true);
-                summonedRock.transform.position = summonStartPos + Vector3.up * 1.5f;
-                summoningRock = false;
+                // Update the last summon time
+                lastSummonTime = Time.time;
             }
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-{
-    // Check if the collision has enough force to break the rock
-    if (collision.relativeVelocity.magnitude >= breakForce)
+
+    // Calculate the remaining cooldown time
+    float remainingCooldownTime = Mathf.Max(0f, summonDelay - (Time.time - lastSummonTime));
+
+    // Update the UI text element with the remaining cooldown time
+    cooldownText.text = "Rock (T): " + remainingCooldownTime.ToString("F0") + "s";
+
+    // If the rock is being summoned, move it up from the ground and then keep it at the player's eye level for a second
+    if (summoningRock)
     {
-        // Destroy the rock
-        Destroy(summonedRock);
+        float summonProgress = (Time.time - summonStartTime) / 1f;
+        if (summonProgress < 1f)
+        {
+            float summonHeight = Mathf.Lerp(0f, 1.5f, summonProgress);
+            Vector3 summonPos = summonStartPos + Vector3.up * summonHeight;
+            summonedRock.transform.position = summonPos;
+
+            float summonScale = Mathf.Lerp(0f, 1f, summonProgress);
+            summonedRock.transform.localScale = new Vector3(summonScale, summonScale, summonScale);
+        }
+        else
+        {
+            // Shoot the rock towards the mouse pointer
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 shootDirection = (mousePos - summonedRock.transform.position).normalized;
+            summonedRock.GetComponent<Rigidbody2D>().velocity = shootDirection * rockSpeed;
+
+            summonedRock.transform.localScale = Vector3.one;
+            summonedRock.SetActive(true);
+            summonedRock.transform.position = summonStartPos + Vector3.up * 1.5f;
+            summoningRock = false;
+        }
     }
 }
 }

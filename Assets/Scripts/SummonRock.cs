@@ -72,7 +72,7 @@ private void Update()
     // If the rock is being summoned, move it up from the ground and then keep it at the player's eye level for a second
     if (summoningRock)
     {
-        float summonProgress = (Time.time - summonStartTime) / 1f;
+        float summonProgress = (Time.time - summonStartTime) / 0.5f;
         if (summonProgress < 1f)
         {
             float summonHeight = Mathf.Lerp(0f, 1.5f, summonProgress);

@@ -54,12 +54,12 @@ public class PlayerController : MonoBehaviour
             // Handle player movement
             horizontalMove = Input.GetAxisRaw("Horizontal") * (Input.GetKey(crouchKey) ? crouchSpeed : moveSpeed);
 
-            // Flip the player sprite if moving left
-            if (horizontalMove < 0f)
+            // Flip the player sprite depending on mouse position
+            if (Input.mousePosition.x < Screen.width / 2)
             {
                 transform.localScale = new Vector2(-1f, 1f);
             }
-            else if (horizontalMove > 0f)
+            else if ((Input.mousePosition.x >= Screen.width / 2))
             {
                 transform.localScale = new Vector2(1f, 1f);
             }

@@ -8,7 +8,17 @@ public class FlameBurst : MonoBehaviour
     [SerializeField]
     private float maxFireBurstLength = 1.0f;
 
+    [SerializeField]
+    private float flameForceMagnitude = 1f;
+
     private float currentFireBurstLength = 0.0f;
+
+    private Rigidbody2D playerRigidbody;
+
+    private void Awake()
+    {
+        playerRigidbody = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
@@ -39,5 +49,13 @@ public class FlameBurst : MonoBehaviour
         
         // Set the rotation of the particle system to the calculated rotation
         flameParticle.transform.rotation = rotation;
+
+        // Apply a force to the player in the opposite direction to the flame burst
+        if (currentFireBurstLength > 0.0f)
+        {
+            Vector2 forceDirection = -direction.normalized;
+            Vector2 force = forceDirection * flameForceMagnitude;
+            playerRigidbody.AddForce(force);
+        }
     }
 }

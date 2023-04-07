@@ -24,8 +24,20 @@ public class FlameBurst : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.I))
         {
             flameParticle.Stop();
-            flameParticle.transform.position = transform.position;
             currentFireBurstLength = 0.0f;
         }
+        
+        // Get the mouse position in world space
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0.0f;
+        
+        // Calculate the direction vector from the particle system's position to the mouse position
+        Vector3 direction = mousePos - flameParticle.transform.position;
+        
+        // Calculate the rotation needed to point the particle system in the direction of the mouse pointer
+        Quaternion rotation = Quaternion.LookRotation(direction, Vector3.back);
+        
+        // Set the rotation of the particle system to the calculated rotation
+        flameParticle.transform.rotation = rotation;
     }
 }

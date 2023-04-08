@@ -39,18 +39,8 @@ public class PlayerController : MonoBehaviour
 
         void Update()
         {
-            // Cast a ray downwards to detect if the player is on the ground
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, groundLayers);
-
-            if (hit.collider != null)
-            {
-                isGrounded = true;
-                Debug.Log("I'm grounded!");
-            }
-            else
-            {
-                isGrounded = false;
-            }
+            // Check if the player is on the ground
+            isGrounded = Physics2D.IsTouchingLayers(coll, groundLayers);
 
             if (isGrounded)
             {

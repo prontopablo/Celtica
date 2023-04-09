@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
 
             if (isGrounded)
             {
-                Debug.Log("I'm grounded!");
                 coyoteTime = 0.1f; // Reset coyoteTime when player is on the ground
             }
             else

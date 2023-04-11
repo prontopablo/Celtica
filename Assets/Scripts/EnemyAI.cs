@@ -109,18 +109,19 @@ public class EnemyAI : MonoBehaviour
         }
 
 
-        //Direction Graphics Handling
+       //Direction Graphics Handling
         if(directionLookEnabled)
         {
             if(rb.velocity.x > 0.01f)
             {
                 transform.localScale = new Vector2(1f, 1f);
             }
-            else if (rb.velocity.x > 0.01f)
+            else if (rb.velocity.x < -0.01f) // Changed from > to <
             {
                 transform.localScale = new Vector2(-1f, 1f);
             }
         }
+
     }
 
     private bool TargetInDistance()

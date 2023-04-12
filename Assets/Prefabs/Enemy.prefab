@@ -165,11 +165,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   activateDistance: 200
-  pathUpdateSeconds: 0.1
+  pathUpdateSeconds: 0.2
   speed: 150
-  nextWaypointDistance: 3
+  nextWaypointDistance: 2
   jumpNodeHeightRequirement: 0.8
-  jumpModifier: 0.6
+  jumpModifier: 0.7
   jumpCheckOffset: 0.1
   fallSpeedMultiplier: 4
   maxFallSpeed: 15

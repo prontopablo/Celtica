@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
 
     private float horizontalMove = 0f;
     private float coyoteTime = 0.2f;
-    private bool isGrounded = false;
     private bool isJumping = false;
     private bool isCrouching = false;
     private float jumpTimeCounter;
@@ -39,10 +38,7 @@ public class PlayerController : MonoBehaviour
 
         void Update()
         {
-            // Check if the player is on the ground
-            isGrounded = Physics2D.IsTouchingLayers(coll, groundLayers);
-
-            if (isGrounded)
+            if (IsGrounded())
             {
                 coyoteTime = 0.1f; // Reset coyoteTime when player is on the ground
             }
@@ -65,20 +61,20 @@ public class PlayerController : MonoBehaviour
             }
 
             // Handle player jumping
-            if (Input.GetButtonDown("Jump") && (isGrounded || coyoteTime > 0f))
+            if (Input.GetButtonDown("Jump") && (IsGrounded() || coyoteTime > 0f))
             {
                 isJumping = true;
                 jumpTimeCounter = jumpTime;
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
 
-                if (Input.GetButton("Jump") && isJumping)
+            if (Input.GetButton("Jump") && isJumping)
             {
-            if (jumpTimeCounter > 0)
-                {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                jumpTimeCounter -= Time.deltaTime;
-                }
+                if (jumpTimeCounter > 0)
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                        jumpTimeCounter -= Time.deltaTime;
+                    }
             }
 
             if (Input.GetButtonUp("Jump"))
@@ -144,5 +140,11 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(hit.collider.gameObject);
         }
+    }
+    
+    // Check if the player is on the ground
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, groundLayers);
     }
 }

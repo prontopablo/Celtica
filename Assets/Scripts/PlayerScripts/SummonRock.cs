@@ -18,7 +18,6 @@ public class SummonRock : MonoBehaviour
     public float breakForce = 3f; // Force required for the rock to break
     public float rockSpeed = 40f;
     private float lastSummonTime; // Time when the last rock was summoned
-    private bool isGrounded = false;
     private bool summoningRock = false; // Flag for whether the rock is being summoned
     private float summonStartTime; // Time when the rock summoning started
     private Vector3 summonStartPos; // Starting position of the rock summoning
@@ -34,33 +33,30 @@ public class SummonRock : MonoBehaviour
         standingColliderOffset = coll.offset;
     }
 
-private void Update()
-{
-    // Check if the player is on the ground
-    isGrounded = Physics2D.IsTouchingLayers(coll, groundLayers);
-
-    // Check if the player presses the summon button (in this case, the T key)
-    if (Input.GetKeyDown(KeyCode.T))
+    private void Update()
     {
-        // Check if enough time has passed since the last summon
-        if (Time.time - lastSummonTime >= summonDelay)
+        // Check if the player presses the summon button (in this case, the T key)
+        if (Input.GetKeyDown(KeyCode.T))
         {
-            // Check if the player is touching the ground layer
-            if (isGrounded && !summoningRock)
+            // Check if enough time has passed since the last summon
+            if (Time.time - lastSummonTime >= summonDelay)
             {
-                // Start summoning the rock
-                summoningRock = true;
-                summonStartTime = Time.time;
-                Vector3 playerPos = transform.position;
-                Vector3 summonDirection = transform.up;
-                summonStartPos = playerPos + transform.right * rockDistance * (transform.localScale.x < 0 ? -1 : 1);
-                summonedRock = Instantiate(rockPrefab, summonStartPos, Quaternion.identity);
-                summonedRock.transform.localScale = Vector3.zero;
+                // Check if the player is touching the ground layer
+                if (IsGrounded() && !summoningRock)
+                {
+                    // Start summoning the rock
+                    summoningRock = true;
+                    summonStartTime = Time.time;
+                    Vector3 playerPos = transform.position;
+                    Vector3 summonDirection = transform.up;
+                    summonStartPos = playerPos + transform.right * rockDistance * (transform.localScale.x < 0 ? -1 : 1);
+                    summonedRock = Instantiate(rockPrefab, summonStartPos, Quaternion.identity);
+                    summonedRock.transform.localScale = Vector3.zero;
 
-                // Update the last summon time
-                lastSummonTime = Time.time;
+                    // Update the last summon time
+                    lastSummonTime = Time.time;
+                }
             }
-        }
     }
 
     // Calculate the remaining cooldown time
@@ -96,4 +92,9 @@ private void Update()
         }
     }
 }
+    // Check if the player is on the ground
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, groundLayers);
+    }
 }

@@ -1496,6 +1496,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8775343941679114461}
     m_Modifications:
+    - target: {fileID: 288685372592343111, guid: 61f6f99751d014341b8d0f26e092890f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -431
+      objectReference: {fileID: 0}
     - target: {fileID: 288685373136846148, guid: 61f6f99751d014341b8d0f26e092890f, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1583,6 +1587,18 @@ PrefabInstance:
     - target: {fileID: 288685373136846200, guid: 61f6f99751d014341b8d0f26e092890f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 288685373514120647, guid: 61f6f99751d014341b8d0f26e092890f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -431
+      objectReference: {fileID: 0}
+    - target: {fileID: 288685374066818435, guid: 61f6f99751d014341b8d0f26e092890f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -431
+      objectReference: {fileID: 0}
+    - target: {fileID: 288685374097181830, guid: 61f6f99751d014341b8d0f26e092890f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -431
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f6f99751d014341b8d0f26e092890f, type: 3}
@@ -1785,6 +1801,10 @@ PrefabInstance:
     - target: {fileID: 8949262101521348579, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348580, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: groundLayers.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8949262101521348583, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
       propertyPath: m_RootOrder

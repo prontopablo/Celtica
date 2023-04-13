@@ -29,7 +29,6 @@ public class EnemyAI : MonoBehaviour
 
     private Path path;
     private int currentWaypoint = 0;
-    bool isGrounded = false;
     Seeker seeker;
     Rigidbody2D rb;
     CapsuleCollider2D coll;
@@ -81,16 +80,12 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        //See if colliding with anything
-        //isGrounded = Physics2D.Raycast(transform.position, -Vector3.up, GetComponent<Collider2D>().bounds.extents.y + jumpCheckOffset);
-        isGrounded = Physics2D.IsTouchingLayers(coll, groundLayers);
-
         //Direction Calculation
         Vector2 direction  = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
         //Jump
-        if (jumpEnabled && isGrounded)
+        if (jumpEnabled && IsGrounded())
         {
             if (direction.y > jumpNodeHeightRequirement)
             {
@@ -136,5 +131,10 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
+    }
+    // Check if the player is on the ground
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, groundLayers);
     }
 }

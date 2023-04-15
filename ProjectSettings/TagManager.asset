@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - SteamParticle
   - SnowParticle
+  - Wife
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Gases
   - Enemy
   - Solids
-  - 
+  - Wife
   - 
   - 
   - 

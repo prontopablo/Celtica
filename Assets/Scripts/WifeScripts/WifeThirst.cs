@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WifeController : MonoBehaviour
+public class WifeThirst : MonoBehaviour
 {
     public float drinkingDistance = 0.5f; // Distance at which the wife starts drinking water particles
     public float thirstDecreaseRate = .1f; // Amount by which the wife's thirst decreases per second

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 167228782835569737}
   - component: {fileID: 167228782835569734}
   m_Layer: 0
-  m_Name: Fire_Sparks
+  m_Name: Fireplace_Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3783,7 +3783,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 383
+      m_Bits: 3583
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

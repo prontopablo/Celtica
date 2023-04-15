@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ea833d779996e3244b3b567764be9cf0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79607251b459d1440ad3489ba99c1355, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   rockDistance: 1
-  cooldownText: {fileID: 0}
+  cooldownText: {fileID: 6577146486859654035, guid: d19a409d6401301489a4b1e7908d7a1b, type: 3}
   breakForce: 1
   rockSpeed: 50
 --- !u!50 &8949262101521348581
@@ -227,8 +227,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015863895, y: 0.015751362}
-  m_Size: {x: 0.38320923, y: 0.38320923}
+  m_Offset: {x: 0.014778137, y: 0.06554651}
+  m_Size: {x: 0.39852905, y: 1.2182455}
   m_Direction: 0
 --- !u!114 &8949262101521348589
 MonoBehaviour:
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterParticlePrefab: {fileID: 3270965696353683610, guid: 5bff43ce3024f11449cfa6382c2977b0, type: 3}
-  moveRadius: 3
+  moveRadius: 5
   moveSpeed: 10
 --- !u!114 &8949262101521348592
 MonoBehaviour:
@@ -313,15 +313,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7507881807587426599, guid: efab736c36c34bc4989cfd8c012e30db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0669827
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7507881807587426599, guid: efab736c36c34bc4989cfd8c012e30db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.732759
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7507881807587426599, guid: efab736c36c34bc4989cfd8c012e30db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7507881807587426599, guid: efab736c36c34bc4989cfd8c012e30db, type: 3}
       propertyPath: m_LocalRotation.w

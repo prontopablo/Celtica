@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 1548252236719458117, guid: 9380854f3da27f949be7c8790be247f4, type: 3}
   CorridorRoomTemplateSets: []
   DefaultIndividualRoomTemplates:
-  - {fileID: 4658253395772040337, guid: 0f6d2b673c60675408d509c8f84b96b7, type: 3}
+  - {fileID: 8697480900399113008, guid: 7ffe8e4b248e41e409fa51af2ab611cd, type: 3}
   DefaultRoomTemplateSets: []
   Rooms:
   - {fileID: 8054174136670338157}
@@ -74,5 +74,5 @@ MonoBehaviour:
   Position: {x: 368, y: 288}
   Name: Spawn
   IndividualRoomTemplates:
-  - {fileID: 4658253395772040337, guid: 6e08f7e55037c2644bc070645ff27a86, type: 3}
+  - {fileID: 7101824660468729431, guid: 6740b05c93e82544c80962b103557e48, type: 3}
   RoomTemplateSets: []

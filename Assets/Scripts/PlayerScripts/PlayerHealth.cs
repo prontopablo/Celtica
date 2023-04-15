@@ -4,7 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int startingHealth = 100; // The player's starting health
     public int currentHealth;        // The player's current health
-    public float damageThreshold = 10f; // The minimum force required to cause damage
+    public float damageThreshold = 20f; // The minimum force required to cause damage
 
     private void Start()
     {

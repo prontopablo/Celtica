@@ -5,7 +5,7 @@ using Pathfinding;
 
 //AstarPath.Scan()
 
-public class EnemyAI : MonoBehaviour
+public class WifeController : MonoBehaviour
 {
     [Header("Pathfinding")]
     public Transform target;
@@ -132,7 +132,7 @@ public class EnemyAI : MonoBehaviour
             currentWaypoint = 0;
         }
     }
-    // Check if the player is on the ground
+    // Check if we're on the ground
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, groundLayers);

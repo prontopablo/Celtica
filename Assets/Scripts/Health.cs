@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,11 +7,10 @@ public class Health : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
-    UIHealthBar healthBar;
+    public UIHealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
-        healthBar = GetComponentInChildren<UIHealthBar>();
         currentHealth = maxHealth;
     }
 

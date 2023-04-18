@@ -1,5 +1,7 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WifeThirst : MonoBehaviour
 {
@@ -7,15 +9,14 @@ public class WifeThirst : MonoBehaviour
     public float thirstDecreaseRate = .1f; // Amount by which the wife's thirst decreases per second
     public float thirstIncreaseAmount = 5f; // Amount by which the wife's thirst increases per particle
     public float maxThirst = 100f; // Maximum value for the wife's thirst
-    public float thirstThreshold = 90f; // Threshold above which the wife will not drink
-
-    private float thirstLevel = 30f; // Current level of wife's thirst
-
+    public float thirstThreshold = 99f; // Threshold above which the wife will not drink
+    private float thirstLevel = 100f; // Current level of wife's thirst
+    public UIThirstBar thirstBar;	//UI thirst bar
     private void Update()
     {
         // Decrease wife's thirst over time
         thirstLevel = Mathf.Max(0f, thirstLevel - thirstDecreaseRate * Time.deltaTime);
-
+        thirstBar.SetThirstBarPercentage(thirstLevel / maxThirst);
         // If wife is not thirsty enough, don't drink water
         if (thirstLevel > thirstThreshold)
         {

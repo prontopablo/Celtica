@@ -9,6 +9,7 @@ TagManager:
   - SteamParticle
   - SnowParticle
   - Wife
+  - Rock
   layers:
   - Default
   - TransparentFX

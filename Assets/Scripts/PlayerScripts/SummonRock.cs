@@ -17,6 +17,7 @@ public class SummonRock : MonoBehaviour
     public Text cooldownText; // Declare a public Text variable to hold the UI text element
     public float breakForce = 3f; // Force required for the rock to break
     public float rockSpeed = 40f;
+    public int rockHealth = 1; // The amount of health the rock has
     private float lastSummonTime; // Time when the last rock was summoned
     private bool summoningRock = false; // Flag for whether the rock is being summoned
     private float summonStartTime; // Time when the rock summoning started
@@ -57,7 +58,7 @@ public class SummonRock : MonoBehaviour
                     lastSummonTime = Time.time;
                 }
             }
-    }
+        }
 
     // Calculate the remaining cooldown time
     float remainingCooldownTime = Mathf.Max(0f, summonDelay - (Time.time - lastSummonTime));
@@ -89,6 +90,18 @@ public class SummonRock : MonoBehaviour
             summonedRock.SetActive(true);
             summonedRock.transform.position = summonStartPos + Vector3.up * 1.5f;
             summoningRock = false;
+        }
+    }
+    // Check if the rock has collided with anything
+    if (summonedRock != null && summonedRock.GetComponent<Collider2D>().IsTouchingLayers(groundLayers))
+    {
+        // Reduce the rock's health
+        rockHealth--;
+
+        // If the rock's health is zero or less, destroy it
+        if (rockHealth <= 0)
+        {
+            Destroy(summonedRock);
         }
     }
 }

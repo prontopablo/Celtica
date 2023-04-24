@@ -27,13 +27,17 @@ public class PlayerController : MonoBehaviour
     private bool isJumping = false;
     private float jumpTimeCounter;
 
+    private void Awake()
+    {
+        playerControls = new PlayerControls();
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<CapsuleCollider2D>();
         standingColliderSize = coll.size;
         standingColliderOffset = coll.offset;
-        playerControls = new PlayerControls();
     }
 
     private void OnEnable()
@@ -108,8 +112,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-           Debug.Log("Movement values: " + movement.ReadValue<Vector2>());
-           
             // Move the player
             rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
 

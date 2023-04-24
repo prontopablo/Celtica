@@ -2406,9 +2406,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348585, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348586, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8949262101521348586, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
       propertyPath: summonDelay
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348587, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348588, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8949262101521348588, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
       propertyPath: cooldownText
@@ -2418,9 +2434,21 @@ PrefabInstance:
       propertyPath: damageThreshold
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348590, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348591, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8949262101521348591, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
       propertyPath: moveRadius
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348592, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}

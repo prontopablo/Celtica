@@ -14,39 +14,25 @@ public class PlayerController : MonoBehaviour
     public float maxFallSpeed = 15f;
     public LayerMask groundLayers;
 
-
+    private Vector2 movementInputValue;
     private Rigidbody2D rb;
     private CapsuleCollider2D coll;
-    private Vector2 standingColliderSize;
-    private Vector2 standingColliderOffset;
-    private PlayerControls playerControls;
-    private InputAction movement;
-
     private float horizontalMove = 0f;
     private float coyoteTime = 0.2f;
     private bool isJumping = false;
     private float jumpTimeCounter;
 
-    private void Awake()
-    {
-        playerControls = new PlayerControls();
-    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<CapsuleCollider2D>();
-        standingColliderSize = coll.size;
-        standingColliderOffset = coll.offset;
     }
 
-    private void OnEnable()
+    private void OnMovement(InputValue value)
     {
-        movement = playerControls.Player.Movement;
-        movement.Enable();
-
-        playerControls.Player.Jump.performed += DoJump;
-        playerControls.Player.Jump.Enable();
+        movementInputValue = value.Get<Vector2>();
+        Debug.Log(movementInputValue);
     }
 
     private void DoJump(InputAction.CallbackContext obj)
@@ -57,12 +43,6 @@ public class PlayerController : MonoBehaviour
             jumpTimeCounter = jumpTime;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-    }
-
-    private void OnDisable()
-    {
-        movement.Disable();
-        playerControls.Player.Jump.Disable();
     }
     
     void Update()
@@ -76,33 +56,30 @@ public class PlayerController : MonoBehaviour
                 coyoteTime -= Time.deltaTime; // Subtract coyoteTime every frame player is not on the ground
             }
 
-            // Handle player movement
-            horizontalMove = movement.ReadValue<Vector2>().x * moveSpeed;
-
-            // Flip the player sprite depending on mouse position
-            if (Input.mousePosition.x < Screen.width / 2)
+            // Flip the player sprite depending on horizontal movement
+            if (movementInputValue.x < 0)
             {
                 transform.localScale = new Vector2(-1f, 1f);
             }
-            else if ((Input.mousePosition.x >= Screen.width / 2))
+            else if (movementInputValue.x > 0)
             {
                 transform.localScale = new Vector2(1f, 1f);
             }
 
-            if (playerControls.Player.Jump.triggered && isJumping)
-            {
-                if (jumpTimeCounter > 0)
-                    {
-                        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                        jumpTimeCounter -= Time.deltaTime;
-                    }
-            }
+            // if (playerControls.Player.Jump.triggered && isJumping)
+            // {
+            //     if (jumpTimeCounter > 0)
+            //         {
+            //             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            //             jumpTimeCounter -= Time.deltaTime;
+            //         }
+            // }
 
-            if (playerControls.Player.Jump.ReadValue<float>() > 0)
-            {
-                isJumping = false;
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
-            }
+            // if (Jumping)
+            // {
+            //     isJumping = false;
+            //     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
+            // }
 
             // Print the player speed
             //float speedInKph = rb.velocity.magnitude * 3.6f; // Convert from m/s to km/h
@@ -112,8 +89,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-            // Move the player
-            rb.velocity = new Vector2(horizontalMove, rb.velocity.y);
+            MoveLogic();
 
             // Handle player jumping
             if (isJumping)
@@ -131,6 +107,38 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -maxFallSpeed));
             }
     }    
+
+    private void MoveLogic()
+    {
+        Vector2 horizontalMovement = new Vector2(movementInputValue.x, 0f);
+        Vector2 result = horizontalMovement * moveSpeed * Time.fixedDeltaTime;
+
+        if (movementInputValue.y > 0.5) // treat up movement as a jump
+        {
+            if (isJumping)
+            {
+                if (jumpTimeCounter > 0)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                    jumpTimeCounter -= Time.deltaTime;
+                }
+                isJumping = false;
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
+            }
+
+            if(IsGrounded() || coyoteTime > 0f)
+            {
+                isJumping = true;
+                jumpTimeCounter = jumpTime;
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
+        }
+        else
+        {
+            rb.velocity = result; // horizontal movement
+        }
+    }
+
     // Check if the player is on the ground
     private bool IsGrounded()
     {

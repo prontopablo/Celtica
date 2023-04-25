@@ -973,7 +973,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792159793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db1a3953e5091d74dbb3476ea33d9317, type: 3}
   m_Name: 
@@ -2351,6 +2351,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steamPrefab: {fileID: 3270965696353683610, guid: 9ad13d36b0ba2c44b861a3dc14fd5dea, type: 3}
   steamDuration: 5
+--- !u!114 &1942491159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942491144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9093abcc2e1b17e4fb4ddc6427ae91a9, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerOnGround
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &1999408409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2361,6 +2391,22 @@ PrefabInstance:
     - target: {fileID: 8949262101521348579, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348580, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: jumpForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348580, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348580, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: moveSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949262101521348581, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8949262101521348583, guid: da59523b4a4e57f48a3a0980df712aa6, type: 3}
       propertyPath: m_RootOrder

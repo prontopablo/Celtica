@@ -2956,6 +2956,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 477360306104814359, guid: e717496d78245964c8aa73a4aac3d5f6, type: 3}
+      propertyPath: logPathResults
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477360306104814359, guid: e717496d78245964c8aa73a4aac3d5f6, type: 3}
       propertyPath: showSearchTree
       value: 0
       objectReference: {fileID: 0}

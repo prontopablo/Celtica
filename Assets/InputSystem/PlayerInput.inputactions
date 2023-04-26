@@ -15,12 +15,21 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "New action",
+                    "name": "ButtonRegular",
                     "type": "Button",
-                    "id": "a2fa31b5-3c72-4997-a61c-55e895441d29",
+                    "id": "cf79b99b-887a-4bea-8dd7-fc2e5148b00c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ButtonHold",
+                    "type": "Button",
+                    "id": "98bf0cea-781f-421e-a594-f630e85f8166",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 }
             ],
@@ -38,12 +47,23 @@
                 },
                 {
                     "name": "",
-                    "id": "7ad81918-6ed7-4c18-93c9-d8aade8384be",
-                    "path": "",
+                    "id": "2148e814-157e-4a70-a371-2193fbc8f5d3",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "ButtonRegular",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54e6b173-bbeb-44b4-9163-396ec9d3834b",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ButtonHold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

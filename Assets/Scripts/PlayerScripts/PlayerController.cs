@@ -70,6 +70,16 @@ public class PlayerController : MonoBehaviour
             }
     }    
 
+    private void OnButtonRegular()
+    {
+        Debug.Log("Button pressed");
+    }
+    
+    private void OnButtonHold()
+    {
+        Debug.Log("Button held");
+    }
+
     private void MoveLogic()
     {
         Vector2 horizontalMovement = new Vector2(movementInputValue.x, 0f);

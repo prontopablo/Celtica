@@ -8,8 +8,6 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
-    public float jumpTime = 0.25f; // Time to reach the apex of the jump
-    public float variableJumpHeightMultiplier = 0.25f; // How much to multiply jump force by when jump button is released early
     public float fallSpeedMultiplier = 3f; // Multiplier for the player's fall speed  
     public float maxFallSpeed = 15f;
     public LayerMask groundLayers;
@@ -17,10 +15,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInputValue;
     private Rigidbody2D rb;
     private CapsuleCollider2D coll;
-    private float horizontalMove = 0f;
     private float coyoteTime = 0.2f;
-    private bool isJumping = false;
-    private float jumpTimeCounter;
 
 
     void Start()
@@ -34,17 +29,7 @@ public class PlayerController : MonoBehaviour
         movementInputValue = value.Get<Vector2>();
         Debug.Log(movementInputValue);
     }
-
-    private void DoJump(InputAction.CallbackContext obj)
-    {
-        if (IsGrounded() || coyoteTime > 0f)
-        {
-            isJumping = true;
-            jumpTimeCounter = jumpTime;
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-    }
-    
+ 
     void Update()
     {
             if (IsGrounded())
@@ -66,21 +51,6 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = new Vector2(1f, 1f);
             }
 
-            // if (playerControls.Player.Jump.triggered && isJumping)
-            // {
-            //     if (jumpTimeCounter > 0)
-            //         {
-            //             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            //             jumpTimeCounter -= Time.deltaTime;
-            //         }
-            // }
-
-            // if (Jumping)
-            // {
-            //     isJumping = false;
-            //     rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
-            // }
-
             // Print the player speed
             //float speedInKph = rb.velocity.magnitude * 3.6f; // Convert from m/s to km/h
             //string speedString = speedInKph.ToString("0.00") + " km/h";
@@ -90,14 +60,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
             MoveLogic();
-
-            // Handle player jumping
-            if (isJumping)
-            {
-                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-                isJumping = false;
-            }
-
             // Apply fall speed multiplier
             if (rb.velocity.y < 0)
             {
@@ -111,31 +73,18 @@ public class PlayerController : MonoBehaviour
     private void MoveLogic()
     {
         Vector2 horizontalMovement = new Vector2(movementInputValue.x, 0f);
-        Vector2 result = horizontalMovement * moveSpeed * Time.fixedDeltaTime;
+        float horizontalVelocity = horizontalMovement.x * moveSpeed * Time.fixedDeltaTime;
 
         if (movementInputValue.y > 0.5) // treat up movement as a jump
         {
-            if (isJumping)
-            {
-                if (jumpTimeCounter > 0)
-                {
-                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                    jumpTimeCounter -= Time.deltaTime;
-                }
-                isJumping = false;
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
-            }
-
             if(IsGrounded() || coyoteTime > 0f)
             {
-                isJumping = true;
-                jumpTimeCounter = jumpTime;
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
         }
         else
         {
-            rb.velocity = result; // horizontal movement
+            rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y); // horizontal movement
         }
     }
 

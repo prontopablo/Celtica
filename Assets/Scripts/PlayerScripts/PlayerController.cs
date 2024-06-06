@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, PlayerInput.IPlayerControlsAction
     public float jumpForce = 5f;
     public float fallSpeedMultiplier = 3f; // Multiplier for the player's fall speed  
     public float maxFallSpeed = 15f;
+    public float lowJumpMultiplier = 0.5f; // Multiplier for when the jump button is released early
     public LayerMask groundLayers;
 
     private Vector2 movementInputValue;
@@ -44,32 +45,42 @@ public class PlayerController : MonoBehaviour, PlayerInput.IPlayerControlsAction
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed && (IsGrounded() || coyoteTime > 0f))
+        if (context.started && (IsGrounded() || coyoteTime > 0f))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-    }
-
-    public void OnButtonRegular(InputAction.CallbackContext context)
-    {
-        if (context.performed)
+        else if (context.canceled)
         {
-            Debug.Log("Button pressed");
+            if (rb.velocity.y > 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * lowJumpMultiplier);
+            }
         }
     }
 
-    public void OnButtonHold(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            Debug.Log("Button held");
-        }
+    public void OnAbility1(InputAction.CallbackContext context)
+    { 
+        // TODO
     }
 
-    public void OnWall(InputAction.CallbackContext context)
+    public void OnAbility2(InputAction.CallbackContext context)
     {
-        // Implement this method if you need to handle the Wall action.
-        // If you don't need it, you can leave it empty.
+        // TODO
+    }
+
+    public void OnAbility3(InputAction.CallbackContext context)
+    {
+        // TODO
+    }
+
+    public void OnAbility4(InputAction.CallbackContext context)
+    {
+        // TODO
+    }
+
+    public void OnAbility5(InputAction.CallbackContext context)
+    {
+        // TODO
     }
 
     void Update()

@@ -6,15 +6,6 @@
             "id": "3af054fc-8e4d-4924-a172-2982cb7cdf7b",
             "actions": [
                 {
-                    "name": "Wall",
-                    "type": "Button",
-                    "id": "bf231efa-f943-43c5-8111-3d993915ca40",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Move",
                     "type": "PassThrough",
                     "id": "86371f93-c0ee-47b3-b9b8-df9893edea63",
@@ -33,18 +24,45 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ButtonRegular",
+                    "name": "Ability1",
                     "type": "Button",
-                    "id": "45072144-fc0b-4167-8b51-04ccc78a43f2",
+                    "id": "bf231efa-f943-43c5-8111-3d993915ca40",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ButtonHold",
+                    "name": "Ability2",
                     "type": "Button",
-                    "id": "d646b537-a453-450a-8fc5-a8aa7fe9e55a",
+                    "id": "6b3542d3-3ba7-44eb-890d-7f26f48aa4ef",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability3",
+                    "type": "Button",
+                    "id": "eb52a672-993b-4a50-81ab-f4837554f0ad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability4",
+                    "type": "Button",
+                    "id": "452f4f77-93cc-4744-aad1-0b40201166db",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Ability5",
+                    "type": "Button",
+                    "id": "9b3fe584-70da-453a-8f2e-7ec406f6421a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -53,18 +71,7 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "cc9ca4a6-3b52-4aef-806f-1a6131dd23e7",
-                    "path": "<Keyboard>/u",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Wall",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "2D Vector",
+                    "name": "SAD",
                     "id": "729ce58d-4734-438b-b630-48dccc6ec931",
                     "path": "2DVector",
                     "interactions": "",
@@ -108,7 +115,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "2D Vector",
+                    "name": "ArrowKeys",
                     "id": "9ba6e03c-d1cc-4d50-b774-575ea92a708c",
                     "path": "2DVector",
                     "interactions": "",
@@ -175,23 +182,56 @@
                 },
                 {
                     "name": "",
-                    "id": "d0cd31c5-e929-46fa-8f07-b53599ed4e43",
-                    "path": "",
+                    "id": "2151e843-201b-4a70-95e5-c0938ec16fd5",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
-                    "action": "ButtonRegular",
+                    "groups": "",
+                    "action": "Ability2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "d05aae4d-7176-4756-b149-ef4f025e555e",
-                    "path": "",
+                    "id": "cc9ca4a6-3b52-4aef-806f-1a6131dd23e7",
+                    "path": "<Keyboard>/u",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "ButtonHold",
+                    "action": "Ability1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "879177a2-bff2-47a8-bf27-40da167b09d4",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "782a6cc0-32ae-4c6f-9660-93580bc77ebb",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d528e459-0bcc-4636-a5c4-46b0a4fc92a6",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

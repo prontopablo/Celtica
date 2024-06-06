@@ -28,15 +28,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""id"": ""3af054fc-8e4d-4924-a172-2982cb7cdf7b"",
             ""actions"": [
                 {
-                    ""name"": ""Wall"",
-                    ""type"": ""Button"",
-                    ""id"": ""bf231efa-f943-43c5-8111-3d993915ca40"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Move"",
                     ""type"": ""PassThrough"",
                     ""id"": ""86371f93-c0ee-47b3-b9b8-df9893edea63"",
@@ -55,18 +46,45 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""ButtonRegular"",
+                    ""name"": ""Ability1"",
                     ""type"": ""Button"",
-                    ""id"": ""45072144-fc0b-4167-8b51-04ccc78a43f2"",
+                    ""id"": ""bf231efa-f943-43c5-8111-3d993915ca40"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ButtonHold"",
+                    ""name"": ""Ability2"",
                     ""type"": ""Button"",
-                    ""id"": ""d646b537-a453-450a-8fc5-a8aa7fe9e55a"",
+                    ""id"": ""6b3542d3-3ba7-44eb-890d-7f26f48aa4ef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability3"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb52a672-993b-4a50-81ab-f4837554f0ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability4"",
+                    ""type"": ""Button"",
+                    ""id"": ""452f4f77-93cc-4744-aad1-0b40201166db"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability5"",
+                    ""type"": ""Button"",
+                    ""id"": ""9b3fe584-70da-453a-8f2e-7ec406f6421a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -75,18 +93,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""cc9ca4a6-3b52-4aef-806f-1a6131dd23e7"",
-                    ""path"": ""<Keyboard>/u"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Wall"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""SAD"",
                     ""id"": ""729ce58d-4734-438b-b630-48dccc6ec931"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -130,7 +137,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""ArrowKeys"",
                     ""id"": ""9ba6e03c-d1cc-4d50-b774-575ea92a708c"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -197,23 +204,56 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d0cd31c5-e929-46fa-8f07-b53599ed4e43"",
-                    ""path"": """",
+                    ""id"": ""2151e843-201b-4a70-95e5-c0938ec16fd5"",
+                    ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""ButtonRegular"",
+                    ""groups"": """",
+                    ""action"": ""Ability2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d05aae4d-7176-4756-b149-ef4f025e555e"",
-                    ""path"": """",
+                    ""id"": ""cc9ca4a6-3b52-4aef-806f-1a6131dd23e7"",
+                    ""path"": ""<Keyboard>/u"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""ButtonHold"",
+                    ""action"": ""Ability1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""879177a2-bff2-47a8-bf27-40da167b09d4"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""782a6cc0-32ae-4c6f-9660-93580bc77ebb"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d528e459-0bcc-4636-a5c4-46b0a4fc92a6"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -236,11 +276,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
 }");
         // PlayerControls
         m_PlayerControls = asset.FindActionMap("PlayerControls", throwIfNotFound: true);
-        m_PlayerControls_Wall = m_PlayerControls.FindAction("Wall", throwIfNotFound: true);
         m_PlayerControls_Move = m_PlayerControls.FindAction("Move", throwIfNotFound: true);
         m_PlayerControls_Jump = m_PlayerControls.FindAction("Jump", throwIfNotFound: true);
-        m_PlayerControls_ButtonRegular = m_PlayerControls.FindAction("ButtonRegular", throwIfNotFound: true);
-        m_PlayerControls_ButtonHold = m_PlayerControls.FindAction("ButtonHold", throwIfNotFound: true);
+        m_PlayerControls_Ability1 = m_PlayerControls.FindAction("Ability1", throwIfNotFound: true);
+        m_PlayerControls_Ability2 = m_PlayerControls.FindAction("Ability2", throwIfNotFound: true);
+        m_PlayerControls_Ability3 = m_PlayerControls.FindAction("Ability3", throwIfNotFound: true);
+        m_PlayerControls_Ability4 = m_PlayerControls.FindAction("Ability4", throwIfNotFound: true);
+        m_PlayerControls_Ability5 = m_PlayerControls.FindAction("Ability5", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -302,20 +344,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     // PlayerControls
     private readonly InputActionMap m_PlayerControls;
     private List<IPlayerControlsActions> m_PlayerControlsActionsCallbackInterfaces = new List<IPlayerControlsActions>();
-    private readonly InputAction m_PlayerControls_Wall;
     private readonly InputAction m_PlayerControls_Move;
     private readonly InputAction m_PlayerControls_Jump;
-    private readonly InputAction m_PlayerControls_ButtonRegular;
-    private readonly InputAction m_PlayerControls_ButtonHold;
+    private readonly InputAction m_PlayerControls_Ability1;
+    private readonly InputAction m_PlayerControls_Ability2;
+    private readonly InputAction m_PlayerControls_Ability3;
+    private readonly InputAction m_PlayerControls_Ability4;
+    private readonly InputAction m_PlayerControls_Ability5;
     public struct PlayerControlsActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerControlsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Wall => m_Wrapper.m_PlayerControls_Wall;
         public InputAction @Move => m_Wrapper.m_PlayerControls_Move;
         public InputAction @Jump => m_Wrapper.m_PlayerControls_Jump;
-        public InputAction @ButtonRegular => m_Wrapper.m_PlayerControls_ButtonRegular;
-        public InputAction @ButtonHold => m_Wrapper.m_PlayerControls_ButtonHold;
+        public InputAction @Ability1 => m_Wrapper.m_PlayerControls_Ability1;
+        public InputAction @Ability2 => m_Wrapper.m_PlayerControls_Ability2;
+        public InputAction @Ability3 => m_Wrapper.m_PlayerControls_Ability3;
+        public InputAction @Ability4 => m_Wrapper.m_PlayerControls_Ability4;
+        public InputAction @Ability5 => m_Wrapper.m_PlayerControls_Ability5;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -325,40 +371,52 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerControlsActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerControlsActionsCallbackInterfaces.Add(instance);
-            @Wall.started += instance.OnWall;
-            @Wall.performed += instance.OnWall;
-            @Wall.canceled += instance.OnWall;
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
-            @ButtonRegular.started += instance.OnButtonRegular;
-            @ButtonRegular.performed += instance.OnButtonRegular;
-            @ButtonRegular.canceled += instance.OnButtonRegular;
-            @ButtonHold.started += instance.OnButtonHold;
-            @ButtonHold.performed += instance.OnButtonHold;
-            @ButtonHold.canceled += instance.OnButtonHold;
+            @Ability1.started += instance.OnAbility1;
+            @Ability1.performed += instance.OnAbility1;
+            @Ability1.canceled += instance.OnAbility1;
+            @Ability2.started += instance.OnAbility2;
+            @Ability2.performed += instance.OnAbility2;
+            @Ability2.canceled += instance.OnAbility2;
+            @Ability3.started += instance.OnAbility3;
+            @Ability3.performed += instance.OnAbility3;
+            @Ability3.canceled += instance.OnAbility3;
+            @Ability4.started += instance.OnAbility4;
+            @Ability4.performed += instance.OnAbility4;
+            @Ability4.canceled += instance.OnAbility4;
+            @Ability5.started += instance.OnAbility5;
+            @Ability5.performed += instance.OnAbility5;
+            @Ability5.canceled += instance.OnAbility5;
         }
 
         private void UnregisterCallbacks(IPlayerControlsActions instance)
         {
-            @Wall.started -= instance.OnWall;
-            @Wall.performed -= instance.OnWall;
-            @Wall.canceled -= instance.OnWall;
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
-            @ButtonRegular.started -= instance.OnButtonRegular;
-            @ButtonRegular.performed -= instance.OnButtonRegular;
-            @ButtonRegular.canceled -= instance.OnButtonRegular;
-            @ButtonHold.started -= instance.OnButtonHold;
-            @ButtonHold.performed -= instance.OnButtonHold;
-            @ButtonHold.canceled -= instance.OnButtonHold;
+            @Ability1.started -= instance.OnAbility1;
+            @Ability1.performed -= instance.OnAbility1;
+            @Ability1.canceled -= instance.OnAbility1;
+            @Ability2.started -= instance.OnAbility2;
+            @Ability2.performed -= instance.OnAbility2;
+            @Ability2.canceled -= instance.OnAbility2;
+            @Ability3.started -= instance.OnAbility3;
+            @Ability3.performed -= instance.OnAbility3;
+            @Ability3.canceled -= instance.OnAbility3;
+            @Ability4.started -= instance.OnAbility4;
+            @Ability4.performed -= instance.OnAbility4;
+            @Ability4.canceled -= instance.OnAbility4;
+            @Ability5.started -= instance.OnAbility5;
+            @Ability5.performed -= instance.OnAbility5;
+            @Ability5.canceled -= instance.OnAbility5;
         }
 
         public void RemoveCallbacks(IPlayerControlsActions instance)
@@ -387,10 +445,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     }
     public interface IPlayerControlsActions
     {
-        void OnWall(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnButtonRegular(InputAction.CallbackContext context);
-        void OnButtonHold(InputAction.CallbackContext context);
+        void OnAbility1(InputAction.CallbackContext context);
+        void OnAbility2(InputAction.CallbackContext context);
+        void OnAbility3(InputAction.CallbackContext context);
+        void OnAbility4(InputAction.CallbackContext context);
+        void OnAbility5(InputAction.CallbackContext context);
     }
 }
